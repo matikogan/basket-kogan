@@ -1,0 +1,29 @@
+.cardProduct-container {
+    border: 0.7px solid rgba(216, 215, 215, 0.863);
+    border-radius: 10px;  
+    box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
+-webkit-box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
+-moz-box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    margin-top: 3rem;
+}
+
+p {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+#addCart {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 0.4rem;
+    background-color: rgb(156, 21, 21);
+    color: white;
+    text-align: center;
+}
