@@ -1,10 +1,18 @@
-import React,{useState} from 'react';
+import React,{ useState } from 'react';
 import './productCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function Jersey( data ) {
+    const [ countCart, setCountCart ] = useState(0)
+    
+    const addCart = () => {
+        setCountCart(countCart + 1)
+    };
 
+    const delCart = () => {
+        setCountCart(countCart - 1)
+    };
 
     return (
             <div className='col-4'>
@@ -13,7 +21,9 @@ export default function Jersey( data ) {
                     <h5 className='text-center'>{data.subtitle}</h5>
                     <img className='jersey_img' src={data.img} alt='hola'></img>
                     <p>Price: ${data.price}</p>
-                    <button id='addCart'>Add to cart</button>
+                    <button onClick={addCart} id='addCart'>Add to cart</button>
+                    <button onClick={delCart} id='addCart'>Remove from cart</button>
+                    <p>You have {countCart} on your Cart</p>
                 </div>
             </div>
 

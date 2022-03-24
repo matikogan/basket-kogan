@@ -1,11 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jersey from '../Product-card/productCard';
-import Title from '../Title/Title';
 
 const ListProducts = () => {
     return (
         <div className="container">
-            <Title title='Jerseys'/>
             <div className='row'>
             <Jersey title='Nuggets' subtitle='Alernative Jersey' price={210} img='./denver-oscura.jpg' />
             <Jersey title='Golden State' subtitle='Original Jersey' price={190} img='./goldenState-titu.jpg' />
