@@ -2,11 +2,13 @@ import React from "react"
 import './Title.css'
 
 
-export default function Title ( {title} ) {
+function Title ( {title} ) {
     return (
-        
+        <div className="title-cotaniner">
             <h2 className="title">{title}</h2>
+        </div>
         
     )
 }
 
+export default Title;
