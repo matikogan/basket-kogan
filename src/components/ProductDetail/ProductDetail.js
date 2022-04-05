@@ -44,7 +44,7 @@ const ProductDetail = () => {
                         <h2>{product.title}</h2>
                         <h2>Edition 2022</h2>
                         <p className='p-detail' id='sub-desc'>{product.subtitle}</p>
-                        <p className='p-detail'>{product.title}</p>
+                        <p className='p-detail'>${product.price}</p>
                         <button id='button-detail'>Add to Cart</button>
                         <p className='p-detail' id='product-desc'>Bold alternate colors and details distinguish the Statement Edition, a jersey that symbolizes the collective strength, spirit and competitive mindset of the roster. The Jordan NBA Statement Edition Swingman Jersey of the Brooklyn Nets is inspired by what the pros wear. It's made from premium double-knit fabric with an easy, relaxed fit that looks great on fans. This product is made with 100% recycled polyester fibers.</p>
                     </div>

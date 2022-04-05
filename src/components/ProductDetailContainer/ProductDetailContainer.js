@@ -6,7 +6,7 @@ const ProductDetailContainer = () => {
     return (
         <>
         
-            <ProductDetail data={dataProduct} />
+            <ProductDetail />
         
         </>
     )
