@@ -3,8 +3,11 @@ import './productCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
+
 export default function Jersey( {data} ) {
-    const { title, subtitle, img, price } = data
+    
+    const { title, subtitle, img, price, id } = data
     const [ countCart, setCountCart ] = useState(0)
     const [ cart, setCart ] = useState(5)
     
@@ -20,8 +23,10 @@ export default function Jersey( {data} ) {
         }
     };
 
+
+
     return (
-            <div className='col-4'>
+            <div className='col-4' >
                 <div className='cardProduct-container'>
                     <h2 className='jersey-title text-center'>{title}</h2>
                     <h5 className='text-center'>{subtitle}</h5>

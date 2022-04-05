@@ -1,9 +1,14 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/footer';
 import Container from '@mui/material/Container';
 import ListProducts from './components/ListProducts/ListProducts';
 import Title from './components/Title/Title';
+import ProductDetail from './components/ProductDetail/ProductDetail';
+
 import React from 'react';
+
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,13 +17,18 @@ function App() {
   return (
     
     <div className="App">
-      <Navbar />
-        <Container className='general-container'>
-          <Title title='Regulat Jerseys'/>
-          <ListProducts />
-          <Title title='All Star Edition Jerseys'/>
-          <ListProducts />
-        </Container>
+      <BrowserRouter>
+        <Navbar />
+          <Routes>
+            <Route path='/' element={<ListProducts/>} />
+            <Route path='/:category/:id' element={<ProductDetail/>}/>
+          {/* <Container className='general-container'>
+            <Title title='Jerseys'/>
+              <ListProducts />   
+            </Container>*/} 
+          </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

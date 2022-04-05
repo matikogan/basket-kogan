@@ -1,80 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jersey from '../Product-card/productCard'; 
 import React,{ useState, useEffect } from 'react';
+import mockProducts from '../../Mock/MockProduct';
+import { useParams } from 'react-router-dom';
 
 const ListProducts = () => {
-
-    const mockProducts = [{
-        title : 'Nuggets',
-        subtitle : 'Alernative Jersey',
-        price : 210 ,
-        img : './denver-oscura.jpg',
-        id : 1 
-    },
-    {
-        title : 'Golden State',
-        subtitle : 'Original Jersey',
-        price : 220 ,
-        img : './goldenState-titu.jpg',
-        id : 2
-    },
-    {
-        title : 'Philadelphia',
-        subtitle : 'Original Jersey',
-        price : 220 ,
-        img : './76ers-titu.jpg',
-        id : 3 
-    },
-    {
-        title : 'KD Team',
-        subtitle : 'All Star Edition',
-        price : 250 ,
-        img : './all-star-edition-grey.jpg',
-        id : 4
-    },
-    {
-        title : 'LJ Team',
-        subtitle : 'All Star Edition',
-        price : 250 ,
-        img : './all-star-edition-pink.jpg',
-        id : 5
-    },
-    {
-        title : 'Retro',
-        subtitle : 'All Star Edition',
-        price : 310 ,
-        img : './all-star-retro.jpg',
-        id : 6
-    }]
-
-
+    const { category } = useParams()
     const [products, setProducts] = useState([])
 
     const getProducts = () => { 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 return resolve(mockProducts)
-            }, 2000)
+            }, 2000);
             
         })
     }
 
     useEffect( () => {
-        getProducts().then( (products) => {
-            setProducts(products)
+        setProducts([])
+        getProducts().then( (productos) => {
+            category ? filterProductByCategory(productos, category) : setProducts(productos)
         }) 
-    }, [])
+    }, [category])
 
     
-    
+    const filterProductByCategory = (array , category)=> {
+        return array.map( (product, i) => {
+            if(product.category === category) {
+                return setProducts(products => [...products, product]);
+            }
+        })
+    }
 
 
     return (
         <div className="container">
             <div className='row'>
-                {products.map( ( product ) => {
+                {products.map( ( product ) => { 
                     const {id} = product
-
+                    console.log(product)
                     return(
                         <Jersey data={product} key={id} />
                     )
