@@ -2,8 +2,7 @@ import './App.css';
 import NavMenu from './components/Navbar/Navbar'
 import Footer from './components/Footer/footer';
 import Container from '@mui/material/Container';
-import ListProducts from './components/ListProducts/ListProducts';
-import Title from './components/Title/Title';
+import Home from './components/Pages/Home';
 import ProductDetailContainer from './components/ProductDetailContainer/ProductDetailContainer';
 
 import React from 'react';
@@ -20,7 +19,8 @@ function App() {
       <BrowserRouter>
         <NavMenu />
           <Routes>
-            <Route path='/' element={<ListProducts/>} />
+            <Route path='/' element={<Home />} />
+            <Route path='/:category/' element={<Home />}/>
             <Route path='/:category/:id' element={<ProductDetailContainer/>}/>
           </Routes>
         <Footer />

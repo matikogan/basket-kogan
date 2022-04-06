@@ -3,7 +3,7 @@ const mockProducts = [{
     subtitle : 'Alernative Jersey',
     price : 210 ,
     img : '../denver-oscura.jpg',
-    category: 'regular',
+    category: 'regular-season',
     id : 1 
 },
 {
@@ -11,7 +11,7 @@ const mockProducts = [{
     subtitle : 'Original Jersey',
     price : 220 ,
     img : '../goldenState-titu.jpg',
-    category: 'regular',
+    category: 'regular-season',
     id : 2
 },
 {
@@ -19,7 +19,7 @@ const mockProducts = [{
     subtitle : 'Original Jersey',
     price : 220 ,
     img : '../76ers-titu.jpg',
-    category: 'regular',
+    category: 'regular-season',
     id : 3 
 },
 {

@@ -7,7 +7,7 @@
 }
 
 .btn-outline-secondary {
-  border: none;
+  border: none !important; 
 }
 
 .navbar {

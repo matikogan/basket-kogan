@@ -39,7 +39,7 @@ function NavMenu() {
                             </Dropdown.Item>
                         </DropdownButton>
                         <Nav.Link>
-                            <Link to={'/about-us'}>About Us</Link>
+                            <Link to={'/about-us'}>Contact</Link>
                         </Nav.Link>
                     </Nav>
                 </Container>

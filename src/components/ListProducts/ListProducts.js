@@ -3,6 +3,7 @@ import Jersey from '../Product-card/productCard';
 import React,{ useState, useEffect } from 'react';
 import mockProducts from '../../Mock/MockProduct';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ListProducts = () => {
     const { category } = useParams()
@@ -41,7 +42,7 @@ const ListProducts = () => {
                     const {id} = product
                     console.log(product)
                     return(
-                        <Jersey data={product} key={id} />
+                       <Jersey data={product} key={id} /> 
                     )
                 })}
             
