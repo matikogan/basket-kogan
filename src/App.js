@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar/Navbar'
+import NavMenu from './components/Navbar/Navbar'
 import Footer from './components/Footer/footer';
 import Container from '@mui/material/Container';
 import ListProducts from './components/ListProducts/ListProducts';
@@ -18,14 +18,10 @@ function App() {
     
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <NavMenu />
           <Routes>
             <Route path='/' element={<ListProducts/>} />
             <Route path='/:category/:id' element={<ProductDetailContainer/>}/>
-          {/* <Container className='general-container'>
-            <Title title='Jerseys'/>
-              <ListProducts />   
-            </Container>*/} 
           </Routes>
         <Footer />
       </BrowserRouter>
