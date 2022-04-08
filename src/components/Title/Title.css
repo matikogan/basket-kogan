@@ -3,15 +3,14 @@
     justify-content: space-between;
     margin: 11px 0;
     align-items: center;
-    
 }
 
 .title {
     margin: auto;
-   text-align: center;
+    text-align: center;
     color: #fff;
     font-weight: 500;
-    font-size: 35px;
+    font-size: 3.7rem;
     line-height: 28px;
     padding-top: 2rem;
     background-color: black;

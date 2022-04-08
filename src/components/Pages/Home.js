@@ -5,7 +5,6 @@ import ListProducts from "../ListProducts/ListProducts"
 
 const Home = () => {
 
-
     return (
         <div>
         <Title title='NBA Jerseys'/>

@@ -7,7 +7,6 @@ function Title ( {title} ) {
         <div className="title-cotaniner">
             <h2 className="title">{title}</h2>
         </div>
-        
     )
 }
 

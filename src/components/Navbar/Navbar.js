@@ -8,22 +8,18 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
 
-
-
-
 function NavMenu() {
-
 
     return (
         <header>
             <Navbar bg="light" variant="light" className='navbar'>
                 <Container>
-                    <Navbar.Brand href="#home">
-                        <img
+                    <Navbar.Brand>
+                        <Link to={'/'}><img
                             src="../logo1.png"
                             className="d-inline-block align-top logo-container"
-                            alt="React Bootstrap logo"
-                        />
+                            alt="Logo Basketball"
+                        /></Link>
                     </Navbar.Brand>
                     <Nav>
                         <Nav.Link href="#home">
@@ -39,8 +35,8 @@ function NavMenu() {
                             </Dropdown.Item>
                         </DropdownButton>
                         <Nav.Link>
-                            <Link to={'/about-us'}>Contact</Link>
-                        </Nav.Link>
+                            <Link to={'/contact'}>Contact</Link>
+                        </Nav.Link>  
                     </Nav>
                 </Container>
             </Navbar>
