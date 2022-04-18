@@ -51,3 +51,18 @@ svg {
   position: relative;
   display: flex;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button#basic-button {
+  color: black;
+  text-transform: capitalize; }
+
+  li.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    color: black;
+    border: none;
+}

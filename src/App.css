@@ -175,3 +175,17 @@ li.col-2.total {
     font-size: 13px;
     text-align: left !important;
 }
+
+.item-cart-modal__action button {
+    background-color: transparent;
+    border: none;
+}
+
+.col button {
+    background-color: transparent;
+    border: none;
+}
+
+li.col.cartInfo { 
+    font-size: 1.27rem;
+}

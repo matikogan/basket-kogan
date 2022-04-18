@@ -10,7 +10,7 @@ import CartContext from '../../Context/CartContext';
 
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
-    const { cartProducts } = useContext(CartContext)
+    const { cartProducts, deleteProduct } = useContext(CartContext)
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -74,7 +74,7 @@ const CartWidget = () => {
                                 <span>$ {cartProduct.price}</span>
                             </div>
                             <div className='item-cart-modal__action'>
-                                <DeleteIcon />
+                               <button onClick={() => deleteProduct(cartProduct)}> <DeleteIcon /> </button>
                             </div>
                         </MenuItem>
                     )

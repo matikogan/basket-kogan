@@ -27,10 +27,10 @@ const CartPage = () => {
                     return (
                         <ul className="row product">
                             <li className="col"><img src={`./${img}`}/></li>
-                            <li className="col">{desc}</li>
-                            <li className="col">${price}</li>
-                            <li className="col">1</li>
-                            <li className="col"><button onClick={() => deleteProduct(cartProduct)}><DeleteForeverIcon /></button></li>
+                            <li className="col cartInfo">{desc}</li>
+                            <li className="col cartInfo">${price}</li>
+                            <li className="col cartInfo">1</li>
+                            <li className="col cartInfo"><button onClick={() => deleteProduct(cartProduct)}><DeleteForeverIcon /></button></li>
                         </ul>
                     )
                 })}
