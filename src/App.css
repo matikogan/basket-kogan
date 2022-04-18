@@ -46,3 +46,132 @@ label {
 }
 
 
+ul.row {
+    list-style-type: none;
+    text-align: center;
+    border-bottom: 0.4px solid black;
+    padding-bottom: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+ul.row.table-title {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    align-items: center;
+    border-bottom: 2px solid black ;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+ul.row.product {
+    max-height: 150px;
+    text-align: center;
+    align-items: center;
+}
+
+li.col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li.col img {
+    max-height: 130px;
+}
+
+ul.row.justify-content-end {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.col-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+    background-color: #8080802e;
+    padding: 0.6rem;
+    border-bottom: 1px solid grey;
+}
+
+li.col-2.total {
+    font-weight: bold;
+}
+
+/*Cart Modal*/
+
+.cart-button svg {
+    color: black;
+}
+
+.cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-button p {
+    color: black;
+    margin-left: 5px;
+}
+
+.cart-modal .MuiPaper-root.MuiPaper-elevation p {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.cart-modal .MuiMenu-list {
+    width: 300px;
+}
+  
+.footer-modal-cart {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.footer-modal-cart a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-modal-cart a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+  
+.item-cart-modal {
+    display: flex;
+}
+  
+.item-cart-modal__img {
+    overflow: hidden;
+    width: 30%;
+    height: 100px;
+}
+  
+.item-cart-modal__info {
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+  
+.item-cart-modal__action {
+    width: 10%;
+}
+  
+.item-cart-modal__img img {
+    width: 100%;
+}
+  
+.item-cart-modal__info p {
+    padding: 0px !important;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    text-align: left !important;
+}

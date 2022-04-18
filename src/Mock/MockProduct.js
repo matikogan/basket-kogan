@@ -2,7 +2,7 @@ const mockProducts = [{
     title : 'Nuggets',
     subtitle : 'Alernative Jersey',
     price : 210 ,
-    img : '../denver-oscura.jpg',
+    img: 'denver-oscura.jpg',
     category: 'regular-season',
     id : 1 
 },
@@ -10,7 +10,7 @@ const mockProducts = [{
     title : 'Golden State',
     subtitle : 'Original Jersey',
     price : 220 ,
-    img : '../goldenState-titu.jpg',
+    img : 'goldenState-titu.jpg',
     category: 'regular-season',
     id : 2
 },
@@ -18,7 +18,7 @@ const mockProducts = [{
     title : 'Philadelphia',
     subtitle : 'Original Jersey',
     price : 220 ,
-    img : '../76ers-titu.jpg',
+    img : '76ers-titu.jpg',
     category: 'regular-season',
     id : 3 
 },
@@ -26,7 +26,7 @@ const mockProducts = [{
     title : 'KD Team',
     subtitle : 'All Star Edition',
     price : 250 ,
-    img : '../all-star-edition-grey.jpg',
+    img : 'all-star-edition-grey.jpg',
     category: 'all-star',
     id : 4
 },
@@ -34,7 +34,7 @@ const mockProducts = [{
     title : 'LJ Team',
     subtitle : 'All Star Edition',
     price : 250 ,
-    img : '../all-star-edition-pink.jpg',
+    img : 'all-star-edition-pink.jpg',
     category: 'all-star',
     id : 5
 },
@@ -42,7 +42,7 @@ const mockProducts = [{
     title : 'Retro',
     subtitle : 'All Star Edition',
     price : 310 ,
-    img : '../all-star-retro.jpg',
+    img : 'all-star-retro.jpg',
     category: 'all-star',
     id : 6
 }]

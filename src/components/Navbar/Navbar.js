@@ -8,14 +8,15 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CartContext from '../../Context/CartContext';
- 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavMenu = () => {
 
     const {cartProducts} = useContext(CartContext)
   
     return (
-        <header>
+        <header className='position-sticky'>
             <Navbar className='navbar'>
                 <Container>
                     <Navbar.Brand>
@@ -26,7 +27,7 @@ const NavMenu = () => {
                         /></Link>
                     </Navbar.Brand>
                     <Nav>
-                        <Nav.Link href="#home">
+                        <Nav.Link>
                             <Link to={'/'}><button id='btn-navbar'>Home</button></Link>
                         </Nav.Link>  
                         <DropdownButton variant="outline-secondary" title="Produts" id="input-group-dropdown-1">
@@ -41,10 +42,8 @@ const NavMenu = () => {
                             <Link to={'/contact'}><button id='btn-navbar'>Contact</button></Link>
                         </Nav.Link>  
                         <Nav.Link>
-                          <Link to='./'><ShoppingCartIcon /> 
-                          </Link>
+                        <CartWidget />
                         </Nav.Link>
-                        <p id='cart-amount'>{cartProducts.length}</p>
                     </Nav>
                 </Container>
             </Navbar>

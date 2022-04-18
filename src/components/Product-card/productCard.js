@@ -32,7 +32,7 @@ export default function Jersey( {data, action} ) {
     const addToCart = () => {
         setCart(cart + 1)
         addProductToCart(data)
-        console.log('cabtudad: ', cart)
+        console.log('Productos Agregados: ', cartProducts)
     }
     
     console.log('cartProducts', cartProducts)

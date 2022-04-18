@@ -25,6 +25,9 @@
 
 .navbar-light .navbar-nav .nav-link {
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
@@ -44,3 +47,7 @@ svg {
   padding: 0;
 }
 
+.dropdown, .dropend, .dropstart, .dropup {
+  position: relative;
+  display: flex;
+}
