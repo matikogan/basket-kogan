@@ -1,9 +1,9 @@
 .cardProduct-container {
     border: 0.7px solid rgba(216, 215, 215, 0.863);
     border-radius: 10px;  
-    box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
--webkit-box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
--moz-box-shadow: -7px 9px 9px 0px rgba(110, 49, 49, 0.657);
+    box-shadow: -7px 9px 9px 0px rgba(0, 0, 0, 0.657);
+-webkit-box-shadow: -7px 9px 9px 0px rgba(0, 0, 0, 0.657);
+-moz-box-shadow: -7px 9px 9px 0px rgba(0, 0, 0, 0.657);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,14 @@
     background-clip: border-box;
     margin-bottom: 3rem;
     margin-top: 1.7rem;
+    transition: all .2s ease-in-out;
+    height: 90%;
 }
+
+.cardProduct-container:hover {
+    transform: scale(1.02);
+}
+
 
 p {
     padding-top: 1rem;
@@ -43,5 +50,24 @@ p {
     border-radius: 3px;
     padding: 5px;
 }
+
+.row.button-container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#control {
+ background-color: transparent;
+ border: none;
+ transition: all .2s ease-in-out;
+
+}
+
+#control:hover {
+    transform: scale(1.3);
+}
+
 
 

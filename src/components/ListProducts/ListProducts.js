@@ -6,20 +6,29 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
+import db from '../../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 const ListProducts = () => {
     const { category } = useParams()
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState(0)
+    
 
-    const getProducts = () => { 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                return resolve(mockProducts)
-            }, 2000);
-            
-        })
+    const getProducts = async () => { 
+        const itemCollection = collection (db, 'productos')
+        const productSnapshot = await getDocs(itemCollection)
+        console.log('productSnapshot', productSnapshot)
+        const productList = productSnapshot.docs.map ((doc) => {
+            let product = doc.data()
+            product.id = doc.id
+            console.log('product', product)
+            return product
+           
+            }
+
+        )
+        return productList
     }
 
     useEffect( () => {
@@ -38,22 +47,15 @@ const ListProducts = () => {
         })
     }
 
-    const addToCart = () => {
-        setCart(cart + 1)
-    }
 
 
     return (
         <div className="container">
-            <div className='cart-container'>
-                <ShoppingCartIcon/> {cart}
-            </div>
             <div className='row'>
                 {products.map( ( product ) => { 
                     const {id} = product
-                    console.log(product)
                     return(
-                       <Jersey data={product} key={id} action={addToCart}/> 
+                       <Jersey data={product} key={id} /> 
                     )
                 })}
             

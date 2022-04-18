@@ -1,35 +1,47 @@
 import './ProductDetail.css'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import mockProducts from '../../Mock/MockProduct';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { doc, getDoc} from 'firebase/firestore';
+import db from '../../firebase';
+import CartContext from '../../Context/CartContext';
+
 
 const ProductDetail = () => { 
 
     const { id } = useParams()
     const [product, setProduct] = useState({})
-
-    useEffect( () => {
-        filterProductsById(mockProducts, id)
-        }, [id])
-
+    const [cart, setCart] = useState(0)
+    const {cartProducts, addProductToCart} = useContext(CartContext)
     
-    const filterProductsById = (array , id) => {
-        return array.map( (product) => {
-            if(product.id == id) {
-                return setProduct(product)
-            }
-        })
+
+    const getProduct = async () => {
+        const docRef = doc(db, 'productos', id)
+        const docSnap = await getDoc (docRef);
+
+        if (docSnap.exists()) {
+            //console.log('document data:', docSnap.data())
+            let product = docSnap.data()
+            product.id=docSnap.id
+            setProduct(product) 
+            console.log ('product: ', docSnap.length)
+        } else {
+            console.log('No such document');
+        }
     }
 
-  /*  
+    useEffect( () => {
+       getProduct()
+        }, [id])
 
-    
 
-    
+       const addToCart = () => {
+            setCart(cart + 1)
+            addProductToCart(product)
+            console.log('cantidad de prods: ', cartProducts.length)
+        }
 
-     */
 
     return (
             <div className='row'>
@@ -45,7 +57,7 @@ const ProductDetail = () => {
                         <h2>Edition 2022</h2>
                         <p className='p-detail' id='sub-desc'>{product.subtitle}</p>
                         <p className='p-detail'>${product.price}</p>
-                        <button id='button-detail'>Add to Cart</button>
+                        <button id='button-detail' onClick={addToCart}>Add to Cart</button>
                         <p className='p-detail' id='product-desc'>Bold alternate colors and details distinguish the Statement Edition, a jersey that symbolizes the collective strength, spirit and competitive mindset of the roster. The Jordan NBA Statement Edition Swingman Jersey of the Brooklyn Nets is inspired by what the pros wear. It's made from premium double-knit fabric with an easy, relaxed fit that looks great on fans. This product is made with 100% recycled polyester fibers.</p>
                     </div>
                 </div>

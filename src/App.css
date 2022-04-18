@@ -1,3 +1,9 @@
+a {
+    text-decoration: none ; 
+    color: rgba(0,0,0,1) ;
+  }
+
+
 .logo-footer {
     max-width: 50px;
 } 
@@ -34,3 +40,9 @@ label {
     text-align: end;
    margin-top: 1rem;
 }
+
+#btn-navbar {
+    color: white;
+}
+
+
