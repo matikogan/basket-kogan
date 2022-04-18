@@ -5,8 +5,13 @@ img {
 .p-detail {
     text-align: start;
     display: block;
-    color: #111;
+    color: rgb(0, 0, 0);
     font-size: 18px;
+}
+
+.p-detail.sust {
+    color: rgb(255, 77, 0);
+    font-weight: 500;
 }
 
 #button-detail {
@@ -19,6 +24,8 @@ img {
     color: #fff;
     width: 100%;
     height: 60px;
+    font-size: 1.3rem;
+    font-weight: 600;
 
 }
 

@@ -47,12 +47,12 @@ const ProductDetail = () => {
             <div className='row'>
                 <div className='col-8 img-container'>
                     <div className='detail-img'>
-                    <img src={product.img} alt=''></img>
+                    <img src={`../${product.img}`} alt={product.id}></img>
                     </div>
                 </div>
                 <div className='col-4'>
                     <div className='info-container'>
-                        <p className='p-detail'>Sustainable Materiales</p>
+                        <p className='p-detail sust'>Sustainable Materiales</p>
                         <h2>{product.title}</h2>
                         <h2>Edition 2022</h2>
                         <p className='p-detail' id='sub-desc'>{product.subtitle}</p>
