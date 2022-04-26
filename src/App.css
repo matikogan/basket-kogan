@@ -159,6 +159,10 @@ li.col-2.total {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.item-cart-modal__amount{
+    font-size: 14px;
+}
   
 .item-cart-modal__action {
     width: 10%;
@@ -188,4 +192,49 @@ li.col-2.total {
 
 li.col.cartInfo { 
     font-size: 1.27rem;
+}
+
+
+.css-q8hpuo-MuiFormControl-root {
+    width: 3rem;
+}
+
+
+#cleanCart {
+    background-color: black;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+div .cleanCart-container {
+    text-align: center;
+}
+
+li.col-4.total {
+    background-color: black;
+    border-bottom: solid 1px black;
+    border-radius: 0px 0px 8px 8px;
+    padding: 0.6rem;
+}
+
+button#checkoutBtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+div .payResume {
+    margin-top: 2.5rem;
+}
+
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+    background-color: black;
+    border-radius: 8px;
 }

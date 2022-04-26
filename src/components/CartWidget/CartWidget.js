@@ -10,7 +10,7 @@ import CartContext from '../../Context/CartContext';
 
 const CartWidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
-    const { cartProducts, deleteProduct } = useContext(CartContext)
+    const { cartProducts, removeProduct, cartProductsQuant } = useContext(CartContext)
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -19,14 +19,12 @@ const CartWidget = () => {
     const handleClose = () => {
         setAnchorEl(null);
       };
-    
-
 
 
     return (
         <div className='cart-button'>
             <ShoppingCartIcon onClick={handleClick} size='small' sx={{ ml: 2 }} aria-controls={open ? 'account-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} />
-            <p>{cartProducts.length}</p>
+            <p>{cartProductsQuant()}</p>
             <Menu anchorEl={anchorEl}
                 id="account-menu"
                 className='cart-modal'
@@ -74,7 +72,7 @@ const CartWidget = () => {
                                 <span>$ {cartProduct.price}</span>
                             </div>
                             <div className='item-cart-modal__action'>
-                               <button onClick={() => deleteProduct(cartProduct)}> <DeleteIcon /> </button>
+                               <button onClick={() => removeProduct(cartProduct)}> <DeleteIcon /> </button>
                             </div>
                         </MenuItem>
                     )

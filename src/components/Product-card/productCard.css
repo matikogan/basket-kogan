@@ -42,14 +42,15 @@ p {
 
 #addToCart {
     margin-top: 0.5rem;
-    margin-left: 1.6rem;
-    margin-right: 1.6rem;
     margin-bottom: 1rem;
     background-color: black;
     color: #fff;
     border: solid rgba(0, 0, 0, 0.67) 2px;
     border-radius: 3px;
     padding: 5px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    font-size: 1.2rem;
 }
 
 .row.button-container {
@@ -59,11 +60,30 @@ p {
     max-width: 300px;
 }
 
-#control {
- background-color: transparent;
- border: none;
- transition: all .2s ease-in-out;
+.row.button-container div {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 
+#price {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+
+#control {
+    background-color: #000000d4;
+    border: none;
+    transition: all .2s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radiud: 10px;
+    border-radius: 9px;
+    margin: 0;
+    padding: 0.1rem;
 }
 
 #control:hover {
@@ -72,3 +92,21 @@ p {
 
 
 
+.css-i4bv87-MuiSvgIcon-root {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
