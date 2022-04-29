@@ -238,3 +238,59 @@ svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
     background-color: black;
     border-radius: 8px;
 }
+
+
+/* Modal formulario cart*/
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthMd.css-12rl710-MuiPaper-root-MuiDialog-paper {
+    width: 80%;
+    justify-content: center;
+    height: 40%;
+    text-align: center;
+}
+
+
+button, input, optgroup, select, textarea {
+    margin-left: 2rem;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button:not(:disabled) #sendForm {
+    cursor: pointer;
+    color: black;
+    background-color: #00000017;
+    text-transform: capitalize;
+    margin-top: 1rem;
+}
+
+input.inputForm {
+    margin: 0.5rem;
+}
+
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+    background-color: white;
+    border-radius: 8px;
+    color: black;
+    -webkit-box-shadow: 6px 6px 6px -4px rgba(0,0,0,0.89); 
+box-shadow: 6px 6px 6px -4px rgba(0,0,0,0.89);
+}
+
+
+#sendForm {
+    margin-top: 1.5rem;
+    color: black;
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 6px;
+    text-transform: capitalize;
+    -webkit-box-shadow: 6px 6px 6px -4px rgba(0,0,0,0.89); 
+    box-shadow: 6px 6px 6px -4px rgba(0,0,0,0.89);
+    font-weight: bold;
+    font-size: 18px;
+}   
+
+div .postMessage h2 {
+    font-size: 40px;
+    margin-bottom: 3rem;
+}

@@ -2,12 +2,13 @@ import Title from "../Title/Title";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import React, { useContext, useState, useEffect } from "react";
-import db from "../../firebase";
-import { addDoc, collection } from "firebase/firestore";
 import CartContext from "../../Context/CartContext";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import CartModal from "../CartModal/CartModal";
+import { async } from "@firebase/util";
+import db from "../../firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 const CartPage = () => {
     const { cartProducts, removeProduct, totalPrice, cleanCart, deleteOneProduct, addProductToCart } = useContext(CartContext)
@@ -16,7 +17,27 @@ const CartPage = () => {
     const [totalCart, setTotalCart] = useState(totalPrice)
     const [openModal, setOpenModal] = useState(false)
     const [orderFinish, setOrderFinish] = useState()
+    const [loadingOrder, setLoadingOrder] = useState(true)
+    const [formData, setFormData] = useState({
+        name: '',
+        surname: '',
+        phone: '',
+        email: ''
+    })
 
+    const [order, setOrder] = useState({
+        buyer: formData,
+        products: cartProducts.map((cartProduct) => {
+            return {
+                id: cartProduct.id,
+                title: cartProduct.title,
+                price: cartProduct.price
+
+            }
+        }),
+        total: totalPrice()
+    }
+    )
 
     const handleOneLess = (id) => {
         deleteOneProduct(id);
@@ -38,11 +59,8 @@ const CartPage = () => {
         setTotalCart(0);
     }
 
-   const handleOpen = () => {
-        setOpenModal(true);
-    };
 
-  const handleClose = () => {
+    const handleClose = () => {
         if (orderFinish){
             cleanCart();
             navigate ('/');
@@ -51,6 +69,32 @@ const CartPage = () => {
         }
     }
  
+    const handleChange = (e) => {
+        const{name, value} = e.target
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setOrder({...order, buyer: formData});
+        let prevOrder = {...order, buyer: formData};
+        sendOrder(prevOrder);
+    }
+
+
+    const sendOrder =  async(prevOrder) => {
+        setLoadingOrder(false)
+        const orderFirebase = collection(db, 'orders')
+        const orderDoc = await addDoc(orderFirebase, prevOrder);
+        setOrderFinish(orderDoc.id)
+        setLoadingOrder(true);
+    }
+
+
+
 
     useEffect(() => {
         if(totalCart > 0) {
@@ -104,7 +148,7 @@ const CartPage = () => {
                                 <li className="col-2 total">${totalPrice()}</li>
                             </ul>
                             <ul className="row justify-content-end" id='checkoutBtn-container'>
-                                <li className="col-4 total"><button onClick={handleOpen} id="checkoutBtn">Checkout</button></li>
+                                <li className="col-4 total"><button onClick={() => setOpenModal(true)} id="checkoutBtn">Checkout</button></li>
                             </ul>
                         </div>
                     </div>
@@ -115,14 +159,45 @@ const CartPage = () => {
                                 <Link to={'/'}><Button>Continue Shopping</Button></Link>
                             </p>
                     </div>
+                
                 )
             }
 
             <CartModal handleClose={()=>handleClose()} open={openModal}>
               
-                <div>
-                    <h3>Your order was delivered succesfully!</h3>
-                </div>
+            {orderFinish?(
+                    <div className='postMessage'>
+                        <h2>¡Thank for your purchase {formData.name}!</h2>
+                        <h3>Your order was delivered succesfully!</h3>
+                        <p><b>Order Number:</b> {orderFinish}</p>
+                        <p>Click outside this window to return to the home page</p>
+                    </div>
+                ):(loadingOrder?(
+                    <div>
+                        <h2>Formulario de Envio</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div>
+                                <input type="text" name='name' placeholder='Name' onChange={handleChange} value={formData.name} className='inputForm' />
+                            </div>
+                            <div>
+                                <input type="text" name='surname' placeholder='Surname' onChange={handleChange} value={formData.surname} className='inputForm' />
+                            </div>
+                            <div>
+                                <input type="number" name='phone' placeholder='Phone' onChange={handleChange} value={formData.phone} className='inputForm' />
+                            </div>
+                            <div>
+                                <input type="mail" name='email' placeholder='E-mail' onChange={handleChange} value={formData.email} className='inputForm' />
+                            </div>
+                            <div>
+                                <Button id="sendForm" type="submit">Enviar</Button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                ):(
+                    <h2>Procesando solicitud...</h2>
+                )
+                )}
                 
 
             </CartModal>
@@ -131,60 +206,6 @@ const CartPage = () => {
     )}
 
 
-      {/*  <div>
-           
-            <div className="cart-container">
-                
-                { haveProducts?(
-                    <div>
-                        {cartProducts.map((product) => {
-                        return (
-                            <ul className="row product">
-                                <li className="col"><img src={`./${product.img}`} alt={product.id}/></li>
-                                <li className="col cartInfo">{product.title}</li>
-                                <li className="col cartInfo">${product.price}</li>
-                                <li className="col cartInfo">
-                                <p>
-                                    <Button onClick={()=>{handleOneLess(product.id)}}>-</Button>
-                                        Cantidad: {product.cantidad}
-                                    <Button onClick={()=>{handleOneMore(product, 1)}}>+</Button>
-                                </p>
-                                </li>
-                                <li className="col cartInfo"><button onClick={() =>{handleDeleteProduct(product.id)}}><DeleteForeverIcon /></button></li>
-                            </ul>
-                       
-                            )
-                        })}
-                        <div className="cleanCart-container">
-                            <Button id='cleanCart'>Clean cart</Button>
-                        </div>
-                        <div>
-                            <ul className="row justify-content-end">
-                                <li className="col-2">Subtotal</li>
-                                <li className="col-2">${totalPrice}</li>
-                            </ul>
-                            <ul className="row justify-content-end">
-                                <li className="col-2 total">Total</li>
-                                <li className="col-2 total">${totalPrice}</li>
-                            </ul>
-                            <ul className="row justify-content-end" id='checkoutBtn-container'>
-                                <li className="col-4 total"><button id="checkoutBtn">Checkout</button></li>
-                            </ul>
-                        </div>
-                    ):(
-                        <div>
-                            <p>There are no items in your cart.</p>
-                            <p>
-                                <Link to={'/'}><Button>Continue Shopping</Button></Link>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            )
-        } 
-        
-    )
-    } */}
     
 
 export default CartPage;
